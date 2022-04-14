@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.2.6.2 (Linux)"/>
+	<meta name="created" content="2022-04-14T10:43:53.057754187"/>
+	<meta name="changed" content="2022-04-14T14:45:17.068425673"/>
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		p { line-height: 115%; margin-bottom: 0.25cm; background: transparent }
+		h1 { margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Sans", sans-serif; font-size: 18pt; font-weight: bold }
+		h1.cjk { font-family: "Noto Sans CJK SC"; font-size: 18pt; font-weight: bold }
+		h1.ctl { font-family: "Lohit Devanagari"; font-size: 18pt; font-weight: bold }
+		a:link { color: #000080; text-decoration: underline }
+		a.cjk:link { so-language: zxx }
+		a.ctl:link { so-language: zxx }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><h1 class="western">
+Frontend development intro</h1>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+<span lang="en-US">On the very start it was </span><span lang="en-US"><b>JavaScript.</b></span><span lang="en-US">
+Browsers need automation, dynamic HTML, interaction with users and
+external services. JavaScript took syntax from Java and every browser
+agree to use it, but they don’t agree on features to implement and
+syntax for these new features. <a class="western" href="https://caniuse.com/">Can
+I use it</a> become a well known site to check every new feature on
+</span><span lang="en-US">every web project</span><span lang="en-US">.</span></p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+In a few years it was a nightmare to program JavaScript, with
+multiple ifs to manage every browser syntax and tweaks. 
+</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+Then <b>Jquery</b> came out, a JavaScript library to manage
+internally all these differences with a unified and simplified
+syntax. It was a breeze of fresh air, with its simplified <a class="western" href="https://api.jquery.com/category/selectors/">selectors</a>
+to point to desired HTML elements from code. These selectors become
+an standard integrated today on every browser, using or not this
+library, and used also on <b>CSS</b> syntax or <b>testing tools</b>.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+But Jquery and JavaScript programming as known then had a performance
+problem. With normal JavaScript programming, anytime you change the
+HTML DOM (document object model), you ask the browser to redraw and a
+complete page rerender is launched.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+This is OK on small, simple pages, mostly static, where a user action
+(click a button, submit a form, click a link) is submitted to server
+for processing and a new web page is served.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+This was the standard years ago. An slow webpage that interact with
+servers, and on these <b>servers</b> (.net, php, ruby, Java, python,
+drupal, wordpress, etc.) several database queries occurs, HTML
+<b>templates</b> are filled and served to client browsers as new HTML
+pages.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+So, you mix two performance problems:</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+-First is the client-server iteration, with templates and complete
+web pages moving between, an slow and inefficient process even with
+today fast internet connections.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+-Second is the complete DOM rerender with every JavaScript action,
+with slow responses on pc browsers, and even worst on mobile devices.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+For the first problem, <b>ajax</b> to the rescue. With ajax, you may
+submit your queries and data to server from JavaScript <b>without a
+new page loading</b>. This way, JavaScript on browsers (front)
+interacts fast and cheap with servers, there is no more page
+interchange, just compressed data (json format). This conducts to
+<b>SPWA</b> (Single page web app). Web app loads on first server
+iteration, from then JavaScript takes control and only ajax data
+exchanges occurs with servers. There is several advantages on this
+approach:</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+1) you reduce your data traffic to a tenth comparing to previous
+templates systems.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+2) you may pack your SPWA as an Android or IOS app with the same code
+base and little effort.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+3) is easier to design your SPWA to be responsive to any device
+screen size.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+4) your servers are easy to develop as independent <b>microservices</b>,
+with a <b>REST</b> interface, to be used as <b>APIs</b>, from web
+apps, from mobile apps, etc.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+But, there are drawbacks also. As your SPWA grows on complexity,
+complete page rerenders conduct to an slow and heavy page, the second
+problem previously mentioned.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+The solution: abandon Jquery and work with modern libraries as <a class="western" href="https://www.codeinwp.com/blog/angular-vs-vue-vs-react/">React
+(from Meta), Angular (from Google) or Vue</a>. 
+</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+The key to these modern JavaScript libraries/frameworks, is the
+<b>virtual DOM</b>. Anytime your code launch some action, the library
+execute over a virtual DOM, compare with the previous <b>state</b>,
+and only HTML elements that effectively changed are informed to
+browser for rerender. Is not easy to program this way, React is the
+most advanced on artifacts and concepts to deal with this type of
+programming.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+With react, the <b>model is the single source of truth</b>. Ideally,
+you use a companion library (<b>redux</b>) to maintain your <b>state</b>
+(a bunch of java objects with all your data variables). The idea,
+based on <i>T</i><i>uring finite states machines</i>, is to use <b>pure
+functions</b> to transit from a known state to another known state.
+These way, you are safe on your code don’t having unexpected side
+effects, code is easier to debug and trace. Also, maintaining your
+historic states, you may replay your states history, for example
+execute a <b>st</b><b>ates time machine</b> to reproduce your user
+steps until he reach some bug.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+So, you use redux for your state, and pure functions for your state
+changes (receive some server data from server via ajax, user actions,
+etc.). You use helpers artifacts and libraries for slicing your redux
+state on smaller files, etc.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+Also, these modern frameworks are mainly developed in <a class="western" href="https://exercism.org/tracks/typescript">Typescript</a>,
+which is a superset of JavaScript and a <b>precompiler</b>. On
+Typescript, you have strong typed expressions that are compiled to
+JavaScript before serve code to the browsers. So, is harder to
+develop with, but comes with peace of mind (less production bugs). On
+the same wagon, tools as <b>linters</b> (<b>eslint</b>) help to tight
+your syntax and code style among your team and find bugs as early as
+possible.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+Using typescript, you program small <b>reusable HTML components</b>.
+Nowadays, even these components are implemented as stateless pure
+functions and not as statefull classes.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+Years ago react used class components that receive <b>properties</b>
+(from redux state, mainly) and internally save <b>state</b>
+variables. Right now, as we use stateless pure functions to define
+our HTML components, we only have <b>props</b> to receive changes to
+react to and change HTML render. If we need to maintain <b>state</b>
+inside some component, or we need to react (change) to some redux
+variable hard to receive by DOM tree inheritance, from ancestors
+components, we have a solution: <b>hooks</b>.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+Another necessary artifact to create reactive components. <b>Hooks
+are subscriptions</b>, we subscribe to certain vars in redux state,
+to certain changes on environment, to certain HTML elements or
+javascript events, and our stateless component may react to changes
+on them, we are notified when something changes, our component has an
+opportunity to execute its code and produce again its HTML (<b>JSX</b>
+code).</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+On starting with hooks I didn’t grasp the concept, and make the
+mistake to hook entire redux state slices to components, then, on
+debugging and <b>profiling</b> my slow components, I notice my
+components re-rendering a lot, for every change on redux, even vars
+not affecting them. This way I understood the importance of subscribe
+(hook) your components only to the vars, events, etc that they really
+need to know about and react of.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+There is a lot of important concepts on <b>frontend web development</b>
+not mentioned yet. CSS <b>preprocessors</b> as SASS or LESS, css
+layout libraries as <b>bootstrap</b> or <b>tailwind</b>, components
+libraries as <b>material ui</b>, canvas graphics, visual effects,
+multilingual, dates, etc.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+The key on modern frontend UI development is to compose
+(<b>create-react-app</b>, <b>webpack</b>, <b>npm</b>) your webapp
+from <a class="western" href="https://github.com/topics/react">free
+libraries</a> and only code specific components to your domain that
+you don’t find elsewhere. Create small, reusable html components,
+<b>test</b> them, and use them to integrate your killer app.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+Then, use your same codebase to deploy your webapp as a browser app,
+as a mobile app (<b>cordova, react native, flutter</b>…) or as a
+desktop native app (<b>electron</b>).</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+Sorry if I have a bias for react, is the froontend environment I
+prefer and have more experience on. Don’t try everything at the
+same time, learn about and incorporate what you need for your project
+and make sense on your overall architecture, plan to your future
+needs. For example, if you are developing a browser app, but your
+planning include an android and ios app, react is a good investment,
+you may create them from the same code, or if performance is not good
+enough, your skills with react are exportable to react-native, and
+all your code but front components are reusable too.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+ Good luck with your developer journey.</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p align="justify" style="line-height: 100%; text-indent: 0.2cm; margin-top: 0.2cm; margin-bottom: 0cm">
+<br/>
+
+</p>
+</body>
+</html>
